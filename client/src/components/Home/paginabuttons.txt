@@ -1,0 +1,17 @@
+<div className="pagination w-[400px] m-auto flex justify-around ">
+        <button onClick={() => setCurrentPage(1)} className="bg-red-700 w-[50px] rounded-sm text-white">
+          First
+        </button>
+        <button onClick={() => setCurrentPage(currentPage - 1)} className="bg-red-700 w-[50px] rounded-sm text-white" disabled={currentPage <= 1}>
+          Prev
+        </button>
+        <span className="text-white">
+          Page {currentPage} of {totalPages}
+        </span>
+        <button onClick={() => setCurrentPage(currentPage + 1)} className="bg-red-700 w-[50px] rounded-sm text-white" disabled={currentPage >= totalPages}>
+          Next
+        </button>
+        <button onClick={() => setCurrentPage(totalPages)} className="bg-red-700 w-[50px] rounded-sm text-white" disabled={currentPage >= totalPages}>
+          Last
+        </button>
+      </div>
