@@ -1,6 +1,7 @@
 const server = require('./src/server');
 const { conn, Driver,Team } = require('./src/db.js');
-const axios = require('axios')
+const axios = require('axios');
+const initializeIdSequence = require('./initializedIdSequence.js');
 
 //? utilities
 const PORT = 3001;
@@ -9,6 +10,7 @@ const API_URL = "http://localhost:5000/drivers";
 const startServer = async () => {
   try {
     await conn.sync({ force: true }); //! true borra
+    await initializeIdSequence();
     await saveInformation();
     server.listen(PORT, () => console.log(`Server listening on port http://localhost:${PORT}`));
   } catch (error) {

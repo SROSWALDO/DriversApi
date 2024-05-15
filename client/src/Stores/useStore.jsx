@@ -7,11 +7,21 @@ const useStore = create((set) => ({
     showFilters: false,
     ageSortOrder: '',
     search: '',
+    alphabeticOrder: '',
+    driver: [],
+    teams: [],
+    teamFilter: '',
+    isCreate: null,
     setShowFilters: (showFilters) => set({ showFilters }),
     setDrivers: (drivers) => set({ drivers }),
     setCurrentPage: (page) => set({ currentPage: page }),
     setSearch: (value) => set({search: value}),
-    setAgeSortOrder: (order) => set({ ageSortOrder: order })
+    setAgeSortOrder: (order) => set({ ageSortOrder: order }),
+    setAlphabeticOrder: (order) => set({ alphabeticOrder: order }),
+    setDriver: (driver) => set({ driver }),
+    setTeams: (teams) => set({teams}),
+    setTeamFilter: (team) => set({ teamFilter: team }),
+    setIsCreate: (driver) => set({ isCreate: driver }),
   }));
 
 export default useStore;

@@ -55,7 +55,7 @@ const Pagination = () => {
       <ul className="pagination flex  mt-[40px] justify-center  ">
         <li className="page-item">
           <button
-            className="p-[6px] bg-red-700 m-1 w-[35px] rounded-full hover:bg-red-500 text-white"
+            className="p-[6px] bg-red-700 m-1 w-[35px] h-[35px] rounded-full hover:bg-red-500 text-white mt-[6px] "
             onClick={() => setCurrentPage(1)}
             disabled={currentPage === 1}
           >
@@ -78,7 +78,7 @@ const Pagination = () => {
 
         <li className="page-item">
           <button
-            className="p-[6px] bg-red-700 m-1 w-[35px] rounded-full hover:bg-red-500 text-white"
+            className="p-[6px] bg-red-700 m-1 w-[35px] h-[35px] rounded-full hover:bg-red-500 text-white mt-[6px] "
             onClick={() => setCurrentPage( currentPage - 1 )}
             disabled={currentPage === 1}
           >
@@ -104,7 +104,7 @@ const Pagination = () => {
             <a onClick={() => setCurrentPage(number)} className="page-link">
             <button
               onClick={() => setCurrentPage(number)}
-              className={`p-2 m-1 w-9 rounded-full text-white ${number === currentPage ? 'bg-red-500' : 'bg-red-700 hover:bg-red-500'}`}>
+              className={`p-2 m-1 w-[40px] h-[40px] rounded-full text-white ${number === currentPage ? 'bg-red-500' : 'bg-red-700 hover:bg-red-500'}`}>
               {number}
             </button>
             </a>
@@ -113,7 +113,7 @@ const Pagination = () => {
 
         <li className="page-item">
           <button
-            className="p-[6px] bg-red-700 m-1 w-[35px] rounded-full hover:bg-red-500 text-white"
+            className="p-[6px] bg-red-700 m-1 w-[35px] h-[35px] flex items-center justify-center mt-[6px] rounded-full hover:bg-red-500 text-white"
             onClick={() => setCurrentPage( currentPage + 1 )}
             disabled={currentPage === totalPages}
           >
@@ -136,7 +136,7 @@ const Pagination = () => {
 
         <li className="page-item">
           <button
-            className="p-[6px] bg-red-700 m-1 w-[35px] rounded-full hover:bg-red-500 text-white"
+            className="p-[6px] bg-red-700 m-1 w-[35px] h-[35px] mt-[6px] rounded-full hover:bg-red-500 text-white"
             onClick={() => setCurrentPage(totalPages)}
             disabled={currentPage === totalPages}
           >

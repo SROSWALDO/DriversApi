@@ -5,11 +5,13 @@ import Pagination from "../Pagination/Pagination"; // Asegúrate de importar Pag
 import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import Filters from "../Filters/Filters";
+import { NavLink } from "react-router-dom";
 
 const URL = "http://localhost:3001/drivers";
 
 export default function Home() {
-  const { setDrivers, setShowFilters, showFilters, currentPage, ageSortOrder, setSearch } = useStore();
+  const { setDrivers, setShowFilters, showFilters, ageSortOrder, setSearch, alphabeticOrder, setTeams,teams, teamFilter, isCreate } = useStore();
+
   const [errorMessage, setErrorMessage] = useState("");
 
   const fetchDrivers = async (search = "") => {
@@ -18,12 +20,32 @@ export default function Home() {
       const response = await axios.get(url);
       if (response.data && Array.isArray(response.data.drivers)) {
         let drivers = response.data.drivers;
-        // Aplica ordenamiento sólo si 'ageSortOrder' es 'asc' o 'desc'
+
+        if (isCreate !== null && isCreate !== "both") {
+          drivers = drivers.filter(driver => driver.isCreate === isCreate);
+        }
+
+        // Ordenamiento por team
+        if (teamFilter) {
+          drivers = drivers.filter(driver => 
+            driver.teams.some(team => team.name.toLowerCase().trim() === teamFilter.toLowerCase().trim())
+          );
+        }
+
+        // Ordenamiento por edad
         if (ageSortOrder === 'asc') {
           drivers.sort((a, b) => new Date(a.dob).getTime() - new Date(b.dob).getTime());
         } else if (ageSortOrder === 'desc') {
           drivers.sort((a, b) => new Date(b.dob).getTime() - new Date(a.dob).getTime());
         }
+
+        // Ordenamiento alfabético
+        if(alphabeticOrder === 'asc') {
+          drivers.sort((a, b) => a.name.localeCompare(b.name)); 
+        } else if(alphabeticOrder === 'desc') {
+          drivers.sort((a, b) => b.name.localeCompare(a.name));
+        }
+
         setDrivers(drivers);
         setErrorMessage(drivers.length === 0 ? "No se encontraron conductores" : "");
       } else {
@@ -38,22 +60,33 @@ export default function Home() {
     }
   };
 
+  const getTeams = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/teams");
+      const data = response.data;
+      setTeams(data)
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   useEffect(() => {
     fetchDrivers();
-  }, [ageSortOrder]);
+    getTeams();
+  }, [ageSortOrder, alphabeticOrder, teamFilter]);
 
   const handleSearch = (search) => {
     fetchDrivers(search);
   };
 
   const handleReturn = () => {
-    fetchDrivers();
-    setSearch('');
-  }
+    // Redirigir al usuario a la página principal
+    return <NavLink to="/" />;
+  };
 
   return (
     <div className="home bg-background-home h-[113vh] bg-cover bg-no-repeat bg-center ">
-      <Navbar onSearch={handleSearch} />
+      <Navbar onSearch={handleSearch} fetchDrivers={fetchDrivers} />
 
       <div className="home-container w-[1280px] h-[100vh] m-auto ">
         {errorMessage ? (
@@ -66,16 +99,14 @@ export default function Home() {
             <div className="filters mt-2 ml-5 relative flex">
               <button
                 className="bg-red-600 text-white p-1 w-[80px] rounded-md  "
-                onClick={() => setShowFilters(!showFilters)}
-              >
+                onClick={() => setShowFilters(!showFilters)}>
                 Filters
               </button>
-              {showFilters && <Filters fetchDrivers={fetchDrivers} />}
+              {showFilters && <Filters fetchDrivers={fetchDrivers} teams={teams} isCreate={isCreate} />}
             </div>
-            <div className="page-data absolute right-40 top-24 text-white ">
-              <p> Page {currentPage} </p>
-            </div>
+
             <Cards />
+            
             <div className="pagination">
               <Pagination />
             </div>

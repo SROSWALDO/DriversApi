@@ -5,6 +5,7 @@ import './App.css'
 import Home from './components/Home/Home'
 import { Route, Routes } from 'react-router-dom'
 import Create from './components/Create/Create'
+import Detail from './components/Detail/Detail'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/create' element={<Create />} />
+          <Route path='/driver/:id' element={ <Detail /> } />
         </Routes>
       </div>
     </>
