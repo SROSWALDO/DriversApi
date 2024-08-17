@@ -23,7 +23,7 @@ export default function Landing() {
         <div className="text p-10 ">
         <p className='text-white text-7xl font-bold ' >DRIVERS API <span className='text-red-600' >F1</span> </p>
         <p className='text-white' >FIND YOUR FAVORITE DRIVER TO LEARN MORE ABOUT HIM</p>
-        <p className='text-white w-[510px] mt-5 text-xl font-semibold ' >Search your favorite driver and find the information you nedd.You can also find the latest news and the best drivers of the moment</p>
+        <p className='text-white w-[510px] mt-5 text-xl font-semibold ' >Search your favorite driver and find the information you nedd.You can also find the latest news and the best drivers of the moment.</p>
         <button onClick={toHome} className='bg-red-700 text-white w-[300px]  p-1 mt-4' >Get Started</button>
         </div>
         <div className="image">
