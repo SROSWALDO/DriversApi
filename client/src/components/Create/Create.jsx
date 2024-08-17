@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useStore from "../../Stores/useStore";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -41,6 +41,8 @@ export default function Create() {
   }, []);
 
   const [selectedTeams, setSelectedTeams] = useState([]);
+
+  const Navigate = useNavigate()
 
   const handleChange = (e) => {
     const selectedTeam = e.target.value;
@@ -107,6 +109,7 @@ export default function Create() {
         formData);
       succesAlert();
       console.log("Conductor creado:", response.data);
+      returnHome()
     } catch (error) {
       console.error("Error al crear conductor:", error.message);
       errorAlert();
@@ -137,14 +140,15 @@ export default function Create() {
   }
 
   return (
-    <div className="flex justify-center items-center bg-background-home bg-center h-screen font-Poppins ">
+    <div className="flex justify-center items-center bg-gradient-to-r from-black to-red-700  bg-center h-screen font-Poppins ">
       <form
         onSubmit={handleSubmit}
-        className="w-[600px] bg-black/60 p-6 rounded shadow-md">
-        <h2 className="text-2xl text-white text-center font-semibold mb-4">
+        className="w-[900px] bg-black/60 p-6 rounded shadow-md">
+        <h2 className="text-4xl  text-white text-center font-semibold mb-7">
           Create new driver
         </h2>
 
+        <div className="flex justify-between " >
         <div className="mb-4">
           <label
             htmlFor="name"
@@ -155,7 +159,7 @@ export default function Create() {
             type="text"
             id="name"
             name="name"
-            className="mt-1 p-2 w-full border rounded-md"/>
+            className="mt-1 p-2 w-[310px] bg-transparent text-white border rounded-md"/>
         </div>
 
         <div className="mb-4">
@@ -168,7 +172,7 @@ export default function Create() {
             type="text"
             id="nationality"
             name="nationality"
-            className="mt-1 p-2 w-full border rounded-md"/>
+            className="mt-1 p-2 bg-transparent text-white w-[250px] border rounded-md"/>
         </div>
 
         <div className="mb-4">
@@ -181,8 +185,11 @@ export default function Create() {
             type="date"
             id="dob"
             name="dob"
-            className="mt-1 p-2 w-full border rounded-md"/>
+            className="mt-1 p-2 w-[250px] bg-transparent text-white border rounded-md"/>
         </div>
+        </div>
+
+        
 
         <div className="mb-4">
           <label
@@ -194,7 +201,7 @@ export default function Create() {
             type="text"
             id="image"
             name="image"
-            className="mt-1 p-2 w-full border rounded-md"/>
+            className="mt-1 p-2 bg-transparent text-white w-full border rounded-md"/>
         </div>
 
         <div className="mb-4">
@@ -207,14 +214,19 @@ export default function Create() {
             id="description"
             name="description"
             rows="3"
-            className="mt-1 p-2 w-full border rounded-md resize-none "
+            className="mt-1 p-2 w-full bg-transparent text-white border rounded-md resize-none "
           ></textarea>
         </div>
+        <div className="flex justify-center items-center mb-3 " >
+        <p className="text-white text-center" >Select Your Teams <span className="text-gray-600 ml-2 text-sm">(Max 3)</span> </p>
+        
+        </div>
 
-        <div className="mb-4">
+        <div className="mb-4 m-auto flex justify-center ">
+          
           <select
             onChange={handleChange}
-            className=" rounded-md bg-black/90 text-white "
+            className=" rounded-md bg-black/90 border text-white "
             id="teams"
             disabled={selectedTeams.length >= 3}>
             <option value=""> Teams </option>
@@ -227,11 +239,13 @@ export default function Create() {
         </div>
 
         {/* Mostrar los equipos seleccionados */}
-        <div className="mb-4 flex ">
+        
+        <div className="mb-4 flex justify-center  ">
+          
           {selectedTeams.map((team, index) => (
             <div
               key={index}
-              className="text-white ml-3 bg-red-600 rounded-md p-1 mb-2 ">
+              className="text-white  ml-3 bg-red-600 rounded-md p-1 mb-2 ">
               {team}
             </div>
           ))}
@@ -246,11 +260,7 @@ export default function Create() {
         </div>
       </form>
 
-      <NavLink to="/" >
-        <div className="button absolute  left-56 ">
-            <img className='w-[60px]' src={returnButton} alt="" />
-        </div>
-      </NavLink>
+      
 
     </div>
   );

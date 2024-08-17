@@ -41,10 +41,11 @@ export default function Detail() {
   }
 
   const toHomme = () => {
-    navigate('/')
+    navigate('/home')
+    setSearch('')
   }
 
-  const { driver, setDriver } = useStore();
+  const { driver, setDriver, setSearch } = useStore();
 
   useEffect(() => {
     const fetchData = async () => {

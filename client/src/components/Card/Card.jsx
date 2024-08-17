@@ -4,7 +4,7 @@ export default function Card({ driver }) {
   const navigate = useNavigate();
 
   const viewDetail = () => {
-    navigate(`driver/${driver.id}`);
+    navigate(`/driver/${driver.id}`);
   };
   const teamNames = driver.teams ? driver.teams.map(team => team.name).join(", ") : '';
 

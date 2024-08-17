@@ -6,6 +6,7 @@ import Home from './components/Home/Home'
 import { Route, Routes } from 'react-router-dom'
 import Create from './components/Create/Create'
 import Detail from './components/Detail/Detail'
+import Landing from './components/Landing/Landing'
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
     <>
       <div>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Landing />}  />
+          <Route path='/home' element={<Home />} />
           <Route path='/create' element={<Create />} />
           <Route path='/driver/:id' element={ <Detail /> } />
         </Routes>
