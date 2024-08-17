@@ -21,7 +21,7 @@ export default function Navbar({ onSearch }) {
   };
 
   return (
-    <div className="nav-container h-[68px] bg-transparent border-b  pb-1 text-white items-center pt-3 flex justify-between">
+    <div className="nav-container h-[68px] bg-transparent   pb-1 text-white items-center pt-3 flex justify-between">
       <div className="logo ml-5">
         <NavLink to="/">
           <img className=" h-[40px] transition-all hover:scale-110  " src={logo} alt="Logo" />
