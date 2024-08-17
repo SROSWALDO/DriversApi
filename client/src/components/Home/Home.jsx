@@ -5,7 +5,7 @@ import Pagination from "../Pagination/Pagination"; // Asegúrate de importar Pag
 import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import Filters from "../Filters/Filters";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const URL = "http://localhost:3001/drivers";
 
@@ -13,6 +13,7 @@ export default function Home() {
   const { setDrivers, setShowFilters, showFilters, ageSortOrder, setSearch, alphabeticOrder, setTeams,teams, teamFilter, isCreate } = useStore();
 
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const fetchDrivers = async (search = "") => {
     const url = search ? `${URL}/search?name=${search}` : URL;
@@ -81,14 +82,15 @@ export default function Home() {
 
   const handleReturn = () => {
     // Redirigir al usuario a la página principal
-    return <NavLink to="/" />;
+    navigate('/')
+    window.location.reload();
   };
 
   return (
-    <div className="home bg-background-home h-[113vh] bg-cover bg-no-repeat bg-center ">
+    <div className="home bg-gradient-to-r from-black to-red-700 h-[145vh] bg-cover bg-no-repeat bg-center font-Poppins ">
       <Navbar onSearch={handleSearch} fetchDrivers={fetchDrivers} />
 
-      <div className="home-container w-[1280px] h-[100vh] m-auto ">
+      <div className="home-container w-[1450px] h-[100vh] m-auto ">
         {errorMessage ? (
           <>
           <p className="error-message text-5xl flex bg-black/50 p-2 w-[800px] m-auto justify-center text-white mt-[100px] ">{errorMessage}</p>
@@ -96,9 +98,9 @@ export default function Home() {
           </>
         ) : (
           <>
-            <div className="filters mt-2 ml-5 relative flex">
+            <div className="filters mt-2 ml-2 mb-2 relative flex">
               <button
-                className="bg-red-600 text-white p-1 w-[80px] rounded-md  "
+                className="bg-transparent border-white border text-white p-1 w-[100px]  "
                 onClick={() => setShowFilters(!showFilters)}>
                 Filters
               </button>

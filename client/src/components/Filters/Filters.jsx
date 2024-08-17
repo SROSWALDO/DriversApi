@@ -54,43 +54,43 @@ export default function Filters({ fetchDrivers }) {
       
       <div className='mr-3'>
         
-        <select className=' rounded-md bg-black/90 text-white ' id="order" onChange={handleSortChange}>
-          <option value="">Order by age</option>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
+        <select className='  bg-transparent border text-white ' id="order" onChange={handleSortChange}>
+          <option className='bg-transparent text-black' value="">Order by age</option>
+          <option className='bg-transparent text-black' value="asc">Ascending</option>
+          <option className='bg-transparent text-black' value="desc">Descending</option>
         </select>
       </div>
 
       <div className='mr-3'>
-        <select className=' rounded-md bg-black/90 text-white ' id="alphabetic" onChange={handleAlphabeticChange}>
-          <option value="">Alphabetic Order</option>
-          <option value="asc">A - Z</option>
-          <option value="desc">Z - A</option>
+        <select className=' bg-transparent border text-white ' id="alphabetic" onChange={handleAlphabeticChange}>
+          <option className='bg-transparent text-black' value="">Alphabetic Order</option>
+          <option className='bg-transparent text-black' value="asc">A - Z</option>
+          <option className='bg-transparent text-black' value="desc">Z - A</option>
         </select>
       </div>
 
       <div className='mr-3'>
-        <select className=' rounded-md bg-black/90 text-white ' id="origin" onChange={handleOriginChange}>
-        <option value="both">All</option>
-          <option value={false} >Api</option>
-          <option value={true}>DB</option>
+        <select className=' bg-transparent border text-white ' id="origin" onChange={handleOriginChange}>
+        <option className='bg-transparent text-black' value="both">All</option>
+          <option className='bg-transparent text-black' value={false} >Api</option>
+          <option className='bg-transparent text-black' value={true}>DB</option>
         </select>
       </div>
 
       <div className='mr-3'>
         
-        <select className=' rounded-md bg-black/90 text-white ' id="teams" onChange={handleTeamChange} >
-          <option value=""> Teams </option>
+        <select className=' bg-transparent border text-white ' id="teams" onChange={handleTeamChange} >
+          <option className='bg-transparent text-black' value=""> Teams </option>
           {
             teams.teams?.map((team, index) => (
-              <option key={index} value={team.name}>{team.name}</option>
+              <option className='bg-transparent text-black' key={index} value={team.name}>{team.name}</option>
             ))
           }
         </select>
       </div>
       
       <div className="reset">
-        <button className='bg-black text-white  rounded-md w-[100px] ' onClick={handleResetFilter} >Reset Filter</button>
+        <button className='bg-transparent border text-white w-[100px] ' onClick={handleResetFilter} >Reset Filter</button>
       </div>
 
     </div>

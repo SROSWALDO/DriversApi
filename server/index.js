@@ -14,7 +14,7 @@ const startServer = async () => {
     await saveInformation();
     server.listen(PORT, () => console.log(`Server listening on port http://localhost:${PORT}`));
   } catch (error) {
-    console.log("Server not started", error.message);
+    console.log("Server not started", error.message, error.stack);
     
   }
 }

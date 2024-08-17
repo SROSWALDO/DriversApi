@@ -3,6 +3,7 @@ import useStore from "../../Stores/useStore";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import returnButton from '../../assets/return2.svg'; 
 
 export default function Create() {
   const { teams, setTeams } = useStore();
@@ -136,7 +137,7 @@ export default function Create() {
   }
 
   return (
-    <div className="flex justify-center items-center bg-background-home bg-center h-screen">
+    <div className="flex justify-center items-center bg-background-home bg-center h-screen font-Poppins ">
       <form
         onSubmit={handleSubmit}
         className="w-[600px] bg-black/60 p-6 rounded shadow-md">
@@ -245,11 +246,11 @@ export default function Create() {
         </div>
       </form>
 
-      <div className="return absolute bg-red-600 text-white p-2 rounded-md w-[100px] text-center left-72 top-10 ">
-        <NavLink to="/" >
-        <button>return</button>
-        </NavLink>
-      </div>
+      <NavLink to="/" >
+        <div className="button absolute  left-56 ">
+            <img className='w-[60px]' src={returnButton} alt="" />
+        </div>
+      </NavLink>
 
     </div>
   );

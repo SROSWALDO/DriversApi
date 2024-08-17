@@ -10,7 +10,10 @@ export default {
     extend: {
       backgroundImage: {
         'background-home': "url(./assets/BackgroundHome.jpg)"
-      }
+      },
+      fontFamily: {
+        'Poppins': ["Poppins", "sans-serif"]
+      },
     },
   },
   plugins: [],

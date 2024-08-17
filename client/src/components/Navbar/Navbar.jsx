@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import useStore from "../../Stores/useStore";
-import logo from "../../assets/logo-f1.png";
+import logo from "../../assets/F1.png";
 
 export default function Navbar({ onSearch }) {
   const navigate = useNavigate();
@@ -21,28 +21,28 @@ export default function Navbar({ onSearch }) {
   };
 
   return (
-    <div className="nav-container h-[60px] bg-black text-white items-center flex justify-between">
+    <div className="nav-container h-[68px] bg-transparent border-b  pb-1 text-white items-center pt-3 flex justify-between">
       <div className="logo ml-5">
         <NavLink to="/">
-          <img className="w-[50px] h-[50px] transition-all hover:scale-110  " src={logo} alt="Logo" />
+          <img className=" h-[40px] transition-all hover:scale-110  " src={logo} alt="Logo" />
         </NavLink>
       </div>
 
       <div className="searchbar">
         <input
-          className="text-black outline-none rounded-md pl-1 "
+          className="text-white bg-transparent border border-white outline-none p-1  pl-1 "
           type="text"
-          placeholder="Seacrh..."
+          placeholder="Search..."
           value={search}
           onChange={handleInputChange}
         />
       </div>
 
-      <div className="about mr-5 bg-red-600 rounded-md p-1 ">
+      <div className="about text-[15px] mr-5 bg-transparent border  p-[6px] ">
         <button onClick={create}>Create your driver</button>
       </div>
 
-      <div className="about mr-5 bg-red-600 rounded-md p-1 ">
+      <div className="about w-[100px] text-center text-[15px] mr-5 bg-transparent border p-[6px] ">
         <button>About me</button>
       </div>
     </div>
