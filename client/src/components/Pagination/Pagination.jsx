@@ -52,7 +52,7 @@ const Pagination = () => {
 
   return (
     <nav>
-      <ul className="pagination flex  mt-[40px] justify-center  ">
+      <ul className="pagination flex  mt-[20px] justify-center  ">
         <li className="page-item">
           <button
             className="p-[6px] bg-red-700 m-1 w-[35px] h-[35px] rounded-full hover:bg-red-500 text-white mt-[6px] "

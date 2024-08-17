@@ -87,7 +87,7 @@ export default function Home() {
   };
 
   return (
-    <div className="home bg-gradient-to-r from-black to-red-700 h-[145vh] bg-cover bg-no-repeat bg-center font-Poppins ">
+    <div className="home bg-gradient-to-r from-black to-red-700 h-[142vh] bg-cover bg-no-repeat bg-center font-Poppins ">
       <Navbar onSearch={handleSearch} fetchDrivers={fetchDrivers} />
 
       <div className="home-container w-[1450px] h-[100vh] m-auto ">
