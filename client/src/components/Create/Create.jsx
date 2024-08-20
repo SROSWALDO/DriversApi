@@ -159,6 +159,7 @@ export default function Create() {
             type="text"
             id="name"
             name="name"
+            placeholder="Ej. Oswaldo Palacios"
             className="mt-1 p-2 w-[310px] bg-transparent text-white border rounded-md"/>
         </div>
 
@@ -172,6 +173,7 @@ export default function Create() {
             type="text"
             id="nationality"
             name="nationality"
+            placeholder="Ej. Mexican"
             className="mt-1 p-2 bg-transparent text-white w-[250px] border rounded-md"/>
         </div>
 
@@ -201,6 +203,7 @@ export default function Create() {
             type="text"
             id="image"
             name="image"
+            placeholder="Url..."
             className="mt-1 p-2 bg-transparent text-white w-full border rounded-md"/>
         </div>
 
@@ -213,12 +216,13 @@ export default function Create() {
           <textarea
             id="description"
             name="description"
+            placeholder="Add description..."
             rows="3"
             className="mt-1 p-2 w-full bg-transparent text-white border rounded-md resize-none "
           ></textarea>
         </div>
         <div className="flex justify-center items-center mb-3 " >
-        <p className="text-white text-center" >Select Your Teams <span className="text-gray-600 ml-2 text-sm">(Max 3)</span> </p>
+        <p className="text-white text-center" >Select Your Teams <span className="text-gray-500 ml-2 text-sm">(Max 3)</span> </p>
         
         </div>
 
