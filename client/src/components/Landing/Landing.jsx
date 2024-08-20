@@ -16,7 +16,7 @@ export default function Landing() {
     <div className='bg-black w-full h-[100vh]' >
       <div className="navbar w-full  h-[60px] flex justify-between items-center p-3">
         <img className='w-[150px] ml-5 ' src={logo} alt="" />
-        <button className='border text-white w-28 h-[35px] mr-5 ' >About me</button>
+        <button onClick={() => navigate('/about') } className='border text-white w-28 h-[35px] mr-5 ' >About me</button>
       </div>
 
       <div className="content w-full h-[90vh] flex justify-between items-center relative ">

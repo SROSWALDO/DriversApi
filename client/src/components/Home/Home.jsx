@@ -81,7 +81,6 @@ export default function Home() {
   };
 
   const handleReturn = () => {
-    // Redirigir al usuario a la página principal
     navigate('/')
     window.location.reload();
   };

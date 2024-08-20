@@ -16,15 +16,15 @@ export default function Navbar({ onSearch }) {
   };
 
   const create = () => {
-    // Navegar a la ruta absoluta del detalle del conductor
     navigate("/create");
   };
 
+
   return (
-    <div className="nav-container h-[68px] bg-transparent   pb-1 text-white items-center pt-3 flex justify-between">
+    <div className="nav-container h-[68px] bg-transparent pb-1 text-white items-center pt-3 flex justify-between">
       <div className="logo ml-5">
         <NavLink to="/">
-          <img className=" h-[40px] transition-all hover:scale-110  " src={logo} alt="Logo" />
+          <img className="h-[40px] transition-all hover:scale-110" src={logo} alt="Logo" />
         </NavLink>
       </div>
 
@@ -43,7 +43,7 @@ export default function Navbar({ onSearch }) {
       </div>
 
       <div className="about w-[100px] text-center text-[15px] mr-5 bg-transparent border p-[6px] ">
-        <button>About me</button>
+        <button onClick={() => navigate('/about') } >About me</button>
       </div>
     </div>
   );
