@@ -75,10 +75,10 @@ export default function Detail() {
   return (
     <div className=" bg-gradient-to-r from-black to-red-700 h-[100vh]  w-[100%] flex items-center bg-cover bg-center font-Poppins  "  >
         <button className="absolute left-14 disabled:filter disabled:grayscale disabled:brightness-50" disabled={Number(id) === 1 } onClick={prevDriver} >
-            <img className="w-14 " src={arrowLeft} alt="" />
+            <img className="w-14 hover:scale-110 transition-all " src={arrowLeft} alt="" />
         </button>
 
-        <button onClick={toHomme} className="absolute top-3 left-[48.5%] bg-black p-3 rounded-full    " >
+        <button onClick={toHomme} className="absolute top-3 left-[48.5%] bg-black p-3 rounded-full hover:scale-105 transition-all    " >
             <img src={home} alt="" />
         </button>
 
@@ -103,7 +103,7 @@ export default function Detail() {
 
       </div>
       <button className="absolute right-14 disabled:filter disabled:grayscale disabled:brightness-50 " disabled={Number(id) >= totalDrivers.length } onClick={nextDriver} >
-        <img className="w-14" src={arrowRight} alt="" />
+        <img className="w-14 hover:scale-110 transition-all" src={arrowRight} alt="" />
       </button>
     </div>
   );
